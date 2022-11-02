@@ -23,12 +23,10 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
       });
-
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
@@ -57,12 +55,13 @@ const Login = (props) => {
                         <div className="form-control">
                             <div className="flex justify-center mt-4"> 
                                 <input 
-                                className="input input-bordered text-gray-200"
-                                name="userName" 
-                                placeholder="Your username"
-                                type="text"  
-                                value={formState.userName}
-                                onChange={handleChange}
+                                    className="input input-bordered text-gray-200"
+                                    name="userName" 
+                                    placeholder="Your username"
+                                    type="text"  
+                                    value={formState.userName}
+                                    onChange={handleChange}
+                                    autoComplete="off"
                                 />
                             </div>
                             <div className="flex justify-center mt-4"> 
@@ -73,6 +72,7 @@ const Login = (props) => {
                                     type="password"  
                                     value={formState.password}
                                     onChange={handleChange}
+                                    autoComplete="off"
                                 />
                             </div>
                             <div className="flex justify-center mt-4">
