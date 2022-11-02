@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { Link } from 'react-router-dom';
 import { Popover, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -11,7 +12,7 @@ const diets = [
   {
     name: 'Calories Checker',
     description: 'Get a better understanding of your daily calories intake',
-    href: '/calories',
+    href: '/food-result',
     icon: CursorArrowRaysIcon,
   }
 ];
@@ -159,9 +160,9 @@ export default function Nav() {
           </Popover.Group>
 
           <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-            <a href="/login" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+            <Link to="/login" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
               Log in
-            </a>
+            </Link>
             <a
               href="/signup"
               className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-yellow-500 p-3 text-base font-medium text-white shadow-sm hover:bg-gray-500"

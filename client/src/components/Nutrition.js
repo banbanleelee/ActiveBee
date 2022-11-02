@@ -1,6 +1,8 @@
-import { data } from "autoprefixer";
+import React, { useState, useEffect } from 'react';
 
-export default function Nutrition( {info}) {
+import FoodDetails from './FoodDetails';
+
+export default function Nutrition( {info, emoji}) {
     console.log(info);
 
     return(
@@ -10,33 +12,54 @@ export default function Nutrition( {info}) {
                 </>
             ) : (
                 <div>
-                    {info.data.hints[0].food.category==='Generic meals' ? (
-                        <div>
-                            {info.data.hints[0].food.category}
-                        </div>
-                    ) : info.data.hints[0].food.category==='Generic foods' ? ( 
-                        <div>
-                            {info.data.hints[0].food.category}
-                        </div>
-                    ) : info.data.hints[0].food.category==='packaged foods' ? ( 
-                        <div>
-                            {info.data.hints[0].food.category}
-                        </div>
-                    ) : info.data.hints[0].food.category==='Fast foods' ? ( 
-                        <div>
-                            {info.data.hints[0].food.category}
-                        </div>
-                    ) : (
-                        <div>
-                            {info.data.hints[0].food.category}
-                        </div>
-                    )}
-                    {info.data.hints[0].food.image ? (
-                        <img src={info.data.hints[0].food.image}></img>
-                    ) : (
-                        <></>
-                    )}
+                    <div className="overflow-x-auto w-full">
+                        <table className="table w-full">
+                            <tbody>
+                                {info.data.hints.map((item) => (
+                                <tr className="hover">
+                                    <th>
+                                        <div className="icon">
+                                            {emoji.data!=null ? (
+                                                emoji.data[0].character
+                                            ):(<span>🍴</span>)}
+                                        </div>
+                                    </th>
+                                    <td>
+                                        <div className="flex items-center space-x-3">
+                                            <div>
+                                                <div className="font-bold text-gray-100">{item.food.label}</div>
+                                                {item.food.brand ? (
+                                                    <div className="badge badge-ghost badge-sm text-gray-200">
+                                                        {item.food.brand}
+                                                    </div>   
+                                                ):(<></>)}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    
+                                    <td>
+                                        <FoodDetails foodId={item.food.foodId}/>
+                                    </td>
+                                    {/* <td>{Object.keys(item.food.nutrients).map((key, index) => {
+                                        return (
+                                            <div key={index}>
+                                                <h2>
+                                                {key}: {item.food.nutrients[key].toFixed(0)}
+                                                </h2>
+                                            </div>
+                                            );
+                                        })}
+                                    </td> */}
+                                    <th>
+                                    <button className="btn btn-primary">Add</button>
+                                    </th>
+                                </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+                
             )}            
         </div>
     )

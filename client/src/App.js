@@ -12,8 +12,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Home from '../src/pages/Home';
-import Calories from '../src/pages/Calories';
-
+import FoodResult from './pages/FoodResult';
+import Login from '../src/pages/Login'
 import Nav from '../src/components/Nav'
 
 const httpLink = createHttpLink({
@@ -49,9 +49,15 @@ function App() {
             </div>
           }>
           </Route>
-          <Route exact='true' path='/calories' element = {
+          <Route exact='true' path='/food-result' element = {
             <div>
-              <Calories />
+              <FoodResult />
+            </div>
+          }>
+          </Route>
+          <Route exact='true' path='/login' element = {
+            <div>
+              <Login />
             </div>
           }>
           </Route>

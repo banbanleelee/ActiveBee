@@ -2,12 +2,14 @@
 import Nutrition from "../components/Nutrition";
 import React, { useState, useEffect } from 'react';
 
-export default function Calories() {
+export default function FoodResult() {
 
     const [info, setInfo] = useState({
         data: "loading",
     });
-
+    const [emoji, setEmoji] = useState({
+        data: "loading",
+    });
     const [inputValue, setInputValue] = useState();
 
     const searchFood = (keyword) => {
@@ -16,7 +18,7 @@ export default function Calories() {
             return res.json();
         })
         .then(function (data) {
-            console.log(data);
+            // console.log(data);
             setInfo({
                 data:data,
             })
@@ -26,18 +28,35 @@ export default function Calories() {
         });
     };
 
+    const searchEmoji = (keyword) =>{
+        fetch(`https://emoji-api.com/emojis?search=${keyword}&access_key=fd2e0e9dcc4f566b87cf2954fb5025d75cebbfc7`)
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (data) {
+            // console.log(data);
+            setEmoji({
+                data:data,
+            })
+        })
+        .catch(function (err) {
+        console.error(err);
+        });
+    }
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
         searchFood(inputValue);
+        searchEmoji(inputValue);
     };
 
     const handleChange = (event) => {
         let query = event.target.value;
-        console.log(event.target.value);
+        // console.log(event.target.value);
         setInputValue(query);
     };
     
-    console.log(info);
+    // console.log(info);
 
     return (
         <div className="flex justify-center">
@@ -55,7 +74,7 @@ export default function Calories() {
                             </div>
                         </div>
                     </form>
-                    {info ? (<Nutrition info={info}/>):(<div></div>)}
+                    {info ? (<Nutrition info={info} emoji={emoji}/>):(<div></div>)}
                     
                 </div>
             </div>
