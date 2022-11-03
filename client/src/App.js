@@ -14,6 +14,7 @@ import { setContext } from '@apollo/client/link/context';
 import Home from '../src/pages/Home';
 import FoodResult from './pages/FoodResult';
 import Login from '../src/pages/Login'
+import Signup from '../src/pages/Signup'
 import Nav from '../src/components/Nav'
 import Dashboard from './pages/Dashboard';
 import Logs from './pages/Logs';
@@ -72,6 +73,12 @@ function App() {
           <Route exact='true' path='/logs' element = {
             <div>
               <Logs />
+            </div>
+          }>
+          </Route>
+          <Route exact='true' path='/signup' element = {
+            <div>
+              <Signup />
             </div>
           }>
           </Route>
