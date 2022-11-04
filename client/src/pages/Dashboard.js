@@ -4,8 +4,10 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
+import FoodLog from '../components/FoodLog';
+
 export default function Dashboard() {
-    console.log(Auth.getProfile());
+    // console.log(Auth.getProfile());
     
     const [menuState, setMenuState] = useState(0);
     const [isShown, setIsShown] = useState(false);
@@ -28,14 +30,14 @@ export default function Dashboard() {
             <div className="grid grid-cols-4 gap-4">
                 <div>
                     <ul className="menu bg-base-100">
-                        <li><a className="hover:active" id="0" onClick={ ()=>handleClick("0")}>🍔 Foods</a></li>
-                        <li><a className="hover:active" id="1" onClick={ ()=>handleClick("1")}>🏆 Activities</a></li>
+                        <li><a className="hover:active" key="0" id="0" onClick={ ()=>handleClick("0")}>🍔 Foods</a></li>
+                        <li><a className="hover:active" key="1" id="1" onClick={ ()=>handleClick("1")}>🏆 Activities</a></li>
                     </ul>
                 </div>
                 <div className="col-span-3">
                     {menuState === "0" ? (
                         <div>
-                            test food
+                            <FoodLog/>
                         </div>
                     ) : menuState === "1" ? (
                         <div>

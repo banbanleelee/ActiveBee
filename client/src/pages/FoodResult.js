@@ -1,6 +1,7 @@
 // import {ViewfinderCircleIcon} from '@heroicons/react/24/outline';
-import Nutrition from "../components/Nutrition";
 import React, { useState, useEffect } from 'react';
+
+import Nutrition from "../components/Nutrition";
 
 export default function FoodResult() {
 
@@ -74,7 +75,11 @@ export default function FoodResult() {
                             </div>
                         </div>
                     </form>
-                    {info ? (<Nutrition info={info} emoji={emoji}/>):(<div></div>)}
+                    {info ? (
+                            <Nutrition info={info} emoji={emoji}/>
+                    ):(
+                        <div></div>
+                    )}
                     
                 </div>
             </div>
