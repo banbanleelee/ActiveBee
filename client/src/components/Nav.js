@@ -5,6 +5,7 @@ import {
   Bars3Icon,
   CursorArrowRaysIcon,
   PlayIcon,
+  Bars3BottomRightIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
@@ -16,6 +17,12 @@ const diets = [
     description: 'Get a better understanding of your daily calories intake',
     href: '/food-result',
     icon: CursorArrowRaysIcon,
+  },
+  {
+    name: 'Food Logs',
+    description: 'A dairy of tastes and numbers',
+    href: '/food-form',
+    icon: Bars3BottomRightIcon,
   }
 ];
 

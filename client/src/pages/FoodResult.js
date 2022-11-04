@@ -1,5 +1,6 @@
 // import {ViewfinderCircleIcon} from '@heroicons/react/24/outline';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import Nutrition from "../components/Nutrition";
 
@@ -67,14 +68,16 @@ export default function FoodResult() {
                     <h2 className="card-title flex justify-center">Find nutrition facts for your favorite food!</h2>
                     <form onSubmit={handleFormSubmit}>
                         <div className="form-control">
-                            <div className="input-group flex justify-center mt-4">
-                                <input type="text" placeholder="Enter a food name..." className="input input-bordered text-gray-200" name="keyword" onChange={handleChange} value={inputValue}/>
+                            <div className="input-group mt-4">
+                                <input type="text" placeholder="Enter a food name..." className="input input-bordered text-gray-200 w-full" name="keyword" onChange={handleChange} value={inputValue}/>
                                 <button className="btn btn-square btn-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <Link to="/food-form" className="btn glass w-full my-2">Log your own food!</Link>
+
                     {info ? (
                             <Nutrition info={info} emoji={emoji}/>
                     ):(

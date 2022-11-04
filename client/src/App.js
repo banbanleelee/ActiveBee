@@ -18,6 +18,7 @@ import Signup from '../src/pages/Signup'
 import Nav from '../src/components/Nav'
 import Dashboard from './pages/Dashboard';
 import Logs from './pages/Logs';
+import FoodForm from './pages/FoodForm';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -79,6 +80,12 @@ function App() {
           <Route exact='true' path='/signup' element = {
             <div>
               <Signup />
+            </div>
+          }>
+          </Route>
+          <Route exact='true' path='/food-form' element = {
+            <div>
+              <FoodForm />
             </div>
           }>
           </Route>
