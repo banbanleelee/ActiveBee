@@ -27,6 +27,17 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/'));
 })
 
+// app.post('/seed-food', function(req, res) {
+//   db.collection('FNDDSDatabase'.insertMany(
+//     [
+//       {"hi": "test"},
+//     ],
+//     (err,results) => {
+//       if (err) throw err;
+//       res.json(results);
+//     }
+//   ))
+// });
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {

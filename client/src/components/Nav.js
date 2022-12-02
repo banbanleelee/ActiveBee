@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Popover, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
+  CakeIcon,
   CursorArrowRaysIcon,
   PlayIcon,
   Bars3BottomRightIcon,
@@ -19,11 +20,17 @@ const diets = [
     icon: CursorArrowRaysIcon,
   },
   {
+    name: 'FDA Database',
+    description: 'Get a better understanding of your daily calories intake',
+    href: '/food-data',
+    icon: CakeIcon,
+  },
+  {
     name: 'Food Logs',
     description: 'A dairy of tastes and numbers',
     href: '/food-form',
     icon: Bars3BottomRightIcon,
-  }
+  },
 ];
 
 const activities = [

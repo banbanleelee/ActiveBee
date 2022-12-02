@@ -14,6 +14,7 @@ export default function FoodForm() {
         addedBy: Auth.getProfile().data._id,
         quantity: '',
         unit: '',  
+        // addedOn: Date.now(),
     });
 
     const [addFood, {error, data}] = useMutation(ADD_FOOD);
@@ -25,7 +26,8 @@ export default function FoodForm() {
           ...formState,
           [name]: value,
         });
-        console.log(formState);
+        // console.log(formState);
+        // console.log(Date.now());
       };
     
       const handleFormSubmit = async (event) => {
@@ -46,10 +48,11 @@ export default function FoodForm() {
             category: '',
             addedBy: Auth.getProfile().data._id,
             quantity: '',
-            unit: '',  
+            unit: '', 
+            // addedOn: Date.now(),//need to fix this!
         });
       };
-      console.log(formState);
+    console.log(formState);
 
     return (
         <div className='flex justify-center'>

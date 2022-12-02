@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Food } = require('../models');
+const { User, Food, FoodDatabase } = require('../models');
 const FoodCategory = require('../models/FoodCategory');
 const { signToken } = require('../utils/auth');
 
@@ -15,6 +15,10 @@ const resolvers = {
 
     getAddedFoodByUserId: async(parent, {userId}) => {
       return await Food.find({ addedBy: userId}).populate('category').populate('addedBy');
+    },
+
+    getFoodByKeyword: async(parent, { keyword }) => {
+      return await FoodDatabase.find({"description": new RegExp(keyword, "i")});
     },
   },
 

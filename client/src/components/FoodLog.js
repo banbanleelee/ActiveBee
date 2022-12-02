@@ -28,7 +28,8 @@ export default function FoodLog () {
                     <th className='bg-slate-50 text-gray-800'>{item.foodName}</th>
                     <td className='bg-slate-50 text-gray-800'>{item.quantity} {item.unit}, {item.calories} calories</td>
                     <td className='bg-slate-50 text-gray-800'>{item.category.categoryName}</td>
-                    <td className='bg-slate-50 text-gray-800'>{dayjs(parseInt(addedFood[0].addedOn)).format('MMM D, dddd')}</td>
+                    <td className='bg-slate-50 text-gray-800'>{dayjs(parseInt(item.addedOn)).format('MMM D, dddd')}</td>
+
                 </tr>
                 ))}
                 

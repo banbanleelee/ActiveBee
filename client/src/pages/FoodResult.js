@@ -14,7 +14,7 @@ export default function FoodResult() {
     });
     const [inputValue, setInputValue] = useState();
 
-    const searchFood = (keyword) => {
+        const searchFood = (keyword) => {
         fetch(`https://api.edamam.com/api/food-database/v2/parser?app_id=1121c7af&app_key=%202967cebace25f945308664861d77c2c5&ingr=${keyword}&nutrition-type=cooking`)
         .then(function (res) {
             return res.json();
@@ -45,6 +45,11 @@ export default function FoodResult() {
         console.error(err);
         });
     }
+
+    useEffect(() => {
+        searchFood(inputValue);
+        searchEmoji(inputValue);
+      }, []);
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
